@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        getEarthQuakeList();
         setBottomNavigationBar();
         initial();
     }
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 Fragment selectedFragment = null;
                 switch (item.getItemId()){
                     case R.id.main_menu:
+                        getEarthQuakeList();
                         selectedFragment = MainMenuFragment.newInstance();
                         break;
                     case R.id.earth_quakes:
