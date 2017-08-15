@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AnlikDepremler</string>
+    <string name="main_menu">Ana Sayfa</string>
+    <string name="earth_quakes">Depremler</string>
+    <string name="contacts">Kişiler</string>
+    <string name="depth">Derinlik: %1$s KM</string>
+    <string name="date">Tarih: %1$s</string>
+    <string name="hour">Saat: %1$s</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
