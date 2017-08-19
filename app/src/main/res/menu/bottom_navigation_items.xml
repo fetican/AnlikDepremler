@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/main_menu"
+        android:title="@string/main_menu"
+        android:icon="@drawable/ic_map_black_48dp" />
+    <item android:id="@+id/earth_quakes"
+        android:title="@string/earth_quakes"
+        android:icon="@drawable/ic_view_headline_black_48dp" />
+    <item android:id="@+id/contacts"
+        android:title="@string/contacts"
+        android:icon="@drawable/ic_alert_circle_black_48dp" />
+</menu>

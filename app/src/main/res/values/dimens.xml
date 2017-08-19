@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title">20sp</dimen>
+    <dimen name="body">14sp</dimen>
+    <dimen name="cardViewMargin">3dp</dimen>
+    <dimen name="titleMargin">4dp</dimen>
+    <dimen name="magnitude">34sp</dimen>
+    <dimen name="bodyItemsMargin">2dp</dimen>
+    <dimen name="magnitudeCircle">60dp</dimen>
+</resources>

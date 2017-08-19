@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">AnlikDepremler</string>
+    <string name="app_name">Güncel Depremler</string>
+    <string name="main_menu">Ana Sayfa</string>
+    <string name="earth_quakes">Depremler</string>
+    <string name="contacts">Önemli Depremler</string>
+    <string name="depth">Derinlik: %1$s KM</string>
+    <string name="date">Tarih: %1$s</string>
+    <string name="hour">Saat: %1$s</string>
+    <string name="magnitude_felt">Hissedilen Şiddet: %1$s</string>
+    <string name="damaged_buildings">Hasarlı Bina: %1$s</string>
+    <string name="life_lost">Can Kaybı: %1$s</string>
 </resources>
