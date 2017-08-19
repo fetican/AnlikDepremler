@@ -1,5 +1,8 @@
 package com.feticankirazci.anlikdepremler;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout mContainer;
     private FragmentManager fm;
     private FragmentTransaction ft;
+    private boolean isWifiConn,isMobileConn;
 //    private ArrayList<Contacts> mContactsList;
 //    private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
 
@@ -46,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        isWifiConn = networkInfo.isConnected();
+        networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        isMobileConn = networkInfo.isConnected();
+        if (!isWifiConn & !isMobileConn){
+            Toast.makeText(this, "İnternet bağlantısı sağlanamadı. Lütfen bağlantınızı kontrol ediniz.", Toast.LENGTH_SHORT).show();
+        }
         getEarthQuakeList();
         getImportantEarthQuakesList();
 //        showContacts();
