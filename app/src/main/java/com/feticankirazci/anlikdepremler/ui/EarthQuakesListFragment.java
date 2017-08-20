@@ -16,15 +16,12 @@ import android.widget.ProgressBar;
 import com.feticankirazci.anlikdepremler.R;
 import com.feticankirazci.anlikdepremler.adapters.EarthQuakeRecyclerViewAdapter;
 import com.feticankirazci.anlikdepremler.models.EarthQuakesList;
-import com.feticankirazci.anlikdepremler.network.Factory;
 import com.feticankirazci.anlikdepremler.services.ResponseServiceEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 /**

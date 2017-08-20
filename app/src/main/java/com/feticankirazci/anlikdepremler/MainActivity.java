@@ -1,8 +1,5 @@
 package com.feticankirazci.anlikdepremler;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -41,27 +38,14 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout mContainer;
     private FragmentManager fm;
     private FragmentTransaction ft;
-    private boolean isWifiConn,isMobileConn;
-//    private ArrayList<Contacts> mContactsList;
-//    private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        isWifiConn = networkInfo.isConnected();
-        networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-        isMobileConn = networkInfo.isConnected();
-        if (!isWifiConn & !isMobileConn){
-//            Toast.makeText(this, "İnternet bağlantısı sağlanamadı. Lütfen bağlantınızı kontrol ediniz.", Toast.LENGTH_SHORT).show();
-        }
         getEarthQuakeList();
         getImportantEarthQuakesList();
-//        showContacts();
         setBottomNavigationBar();
         initial();
     }
@@ -138,45 +122,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-//    private void showContacts(){
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-//            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, PERMISSIONS_REQUEST_READ_CONTACTS);
-//        } else { getContactList(); }
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == PERMISSIONS_REQUEST_READ_CONTACTS) {
-//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                // Permission is granted
-//                showContacts();
-//            } else {
-//                Toast.makeText(this, "İzin vermediğiniz takdirde Kişiler'inize ulaşamayız.", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
-//
-//    private void getContactList() {
-//
-//            mContactsList = new ArrayList<>();
-//            ContentResolver resolver = getContentResolver();
-//            Cursor cursor = resolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
-//
-//            while (cursor.moveToNext()) {
-//                String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
-//                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-//
-//                Cursor phoneCursor = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
-//                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[]{id}, null);
-//
-//                while (phoneCursor.moveToNext()) {
-//                    String phoneNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-//                    mContactsList.add(new Contacts(name, phoneNumber));
-//                }
-//            }
-//            EventBus.getDefault().postSticky(new ContactsListEvent(null, mContactsList));
-//        }
-    }
+}
 
