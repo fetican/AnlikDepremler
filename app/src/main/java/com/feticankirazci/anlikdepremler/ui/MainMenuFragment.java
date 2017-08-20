@@ -66,6 +66,7 @@ public class MainMenuFragment extends Fragment{
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_main_menu, container, false);
         mProgressBar = view.findViewById(R.id.progressBar);
+        mProgressBar.getIndeterminateDrawable().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
         mMapView = (MapView) view.findViewById(R.id.mapView);
         mMapView.setVisibility(View.GONE);
         mMapView.onCreate(savedInstanceState);
@@ -84,7 +85,6 @@ public class MainMenuFragment extends Fragment{
             return;
         }
         mProgressBar.setVisibility(View.GONE);
-        mProgressBar.getIndeterminateDrawable().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
         mMapView.setVisibility(View.VISIBLE);
         mMapView.getMapAsync(new OnMapReadyCallback() {
             @Override

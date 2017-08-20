@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         isMobileConn = networkInfo.isConnected();
         if (!isWifiConn & !isMobileConn){
-            Toast.makeText(this, "İnternet bağlantısı sağlanamadı. Lütfen bağlantınızı kontrol ediniz.", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "İnternet bağlantısı sağlanamadı. Lütfen bağlantınızı kontrol ediniz.", Toast.LENGTH_SHORT).show();
         }
         getEarthQuakeList();
         getImportantEarthQuakesList();
@@ -111,7 +111,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<EarthQuakesList> call, Throwable t) {
                 Log.d(MainActivity.class.getName(),"Failure",t);
-                Toast.makeText(MainActivity.this,t.getMessage(), Toast.LENGTH_LONG).show();
+                if(!t.getMessage().equals("timeout")){
+                    Toast.makeText(MainActivity.this,"İnternet bağlantısı sağlanamadı. Lütfen bağlantınızı kontrol ediniz.", Toast.LENGTH_LONG).show();
+                }else if(t.getMessage().equals("timeout")){
+                    Toast.makeText(MainActivity.this,"Sunucu yeterince hızlı cevap veremedi. Lütfen bağlantınızı kontrol ediniz.", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -126,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ImportantEarthQuakesList> call, Throwable t) {
                 Log.d(MainActivity.class.getName(),"Failure",t);
+                if(!t.getMessage().equals("timeout")){
+                    Toast.makeText(MainActivity.this,"İnternet bağlantısı sağlanamadı. Lütfen bağlantınızı kontrol ediniz.", Toast.LENGTH_LONG).show();
+                }else if(t.getMessage().equals("timeout")){
+                    Toast.makeText(MainActivity.this,"Sunucu yeterince hızlı cevap veremedi. Lütfen bağlantınızı kontrol ediniz.", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
